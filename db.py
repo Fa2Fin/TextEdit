@@ -160,8 +160,7 @@ class Ui_MainWindow(object):
         try:
             with open(os.path.abspath('my_python_base.bin')) as my_file:
                 txt = my_file.readlines()
-                print(txt)
-                self.textEdit.setPlainText('/n'.join(txt))
+                self.textEdit.setPlainText(''.join(txt))
         except:
             my_file = open("my_python_base.bin", "w+")
             my_file.close()
@@ -602,9 +601,8 @@ class Ui_MainWindow(object):
             pass
 
     def add_db(self):
-        txt = self.textEdit.toPlainText().split()
+        txt = self.textEdit.toPlainText().split('\n')
         my_file = open(os.path.abspath('my_python_base.bin'), "w+")
-        print(txt)
         my_file.writelines('\n'.join(item for item in txt))
 
 
